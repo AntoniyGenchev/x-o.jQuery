@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body{
+            margin-top: 100px;
+            margin-left: 35%;
+            background-color: saddlebrown;
+        }
+        button{
+            height: 137px;
+            width: 135px;
+            cursor: pointer;
+        }
+        .x{
+            background-image: url("AS222.jpg");
+        }
+        .o{
+            background-image: url('OOO.jpg');
+        }
+    </style>
+    </head>
+    <body>
+        <button class="spot a1" ></button>
+        <button class="spot a2" ></button>
+        <button class="spot a3" ></button>
+        <br>
+        <button class="spot a4" ></button>
+        <button class="spot a5" ></button>
+        <button class="spot a6" ></button>
+        <br>
+        <button class="spot a7" ></button>
+        <button class="spot a8" ></button>
+        <button class="spot a9" ></button> 
+
+        <script type="text/javascript">
+                $(document).ready(function(){
+                    var player = 1;
+
+                    $('.spot').on('click',function(){
+                        var spotSelected = $(this);
+
+                        if(spotSelected.hasClass('x')|| spotSelected.hasClass('o')){
+                            alert("Чук,Чук!");
+                        }else{
+                            if (player===1) {
+                                spotSelected.addClass('x');
+                           if (checkWon('x')) {                           
+                                alert('Играч  X  спeчели!');
+                           }else{
+                                player=2;
+                           }
+
+                        }else{
+                            spotSelected.addClass('o');
+                            if (checkWon('o')) {                           
+                                alert('Играч  О  спeчели!');
+                           }else{
+                                player=1;
+                           }
+                        }
+                    }
+                });
+                    function checkWon(symbol){
+                        if ($('.a1').hasClass(symbol) && $('.a2').hasClass(symbol) && $('.a3').hasClass(symbol)) {
+                            return true;
+                        }else if ($('.a4').hasClass(symbol) && $('.a5').hasClass(symbol) && $('.a6').hasClass(symbol)) {
+                            return true;
+                        }else if ($('.a7').hasClass(symbol) && $('.a8').hasClass(symbol) && $('.a9').hasClass(symbol)) {
+                            return true;
+                        }else if ($('.a1').hasClass(symbol) && $('.a4').hasClass(symbol) && $('.a7').hasClass(symbol)) {
+                            return true;
+                        }else if ($('.a2').hasClass(symbol) && $('.a5').hasClass(symbol) && $('.a8').hasClass(symbol)) {
+                            return true;
+                        }else if ($('.a3').hasClass(symbol) && $('.a6').hasClass(symbol) && $('.a9').hasClass(symbol)) {
+                            return true;
+                        }else if ($('.a1').hasClass(symbol) && $('.a5').hasClass(symbol) && $('.a9').hasClass(symbol)) {
+                            return true;
+                        }else if ($('.a3').hasClass(symbol) && $('.a5').hasClass(symbol) && $('.a7').hasClass(symbol)) {
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }
+                });
+        </script>
+    </body>
+</html>
