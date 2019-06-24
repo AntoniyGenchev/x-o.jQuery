@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0; 
+            }
+            #left{
+                background-color: blue;
+                height: 750px;
+                width: 50%;
+                float: left;
+            }
+            #right{    
+                background-color: orange;
+                height: 750px;
+                width: 50%;
+                float: right;
+
+            }
+
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $(document).keydown(function(e) {
+                        
+                if(e.keyCode==65)
+                {
+                    $("#left").css("background","green");
+                    setTimeout(function(){
+                    $("#left").css("background","blue");
+                    },2000);
+                }
+
+                if(e.keyCode==68)
+                {
+                    $("#right").css("background","red");
+                    setTimeout(function(){
+                    $("#right").css("background","orange");
+                },
+                    2000);
+                } 
+                    });
+                });
+        </script>
+    </head>
+    <body>
+        <div id="mid">
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+    </body>
+</html>
